@@ -6,10 +6,9 @@ framework) that pulls the `capell-app/*` packages from a private Composer
 registry. It is **not** the Capell CMS core or the full Capell App.
 
 - **PHP** `^8.4`, **Laravel** `^13.8`
-- Packages: core + the marketing-site CMS set (`core`, `admin`, `frontend`,
-  `foundation-theme`, `layout-builder`, `block-library`, `content-sections`,
-  `hero`, `navigation`, `seo-suite`, `publishing-studio`, `frontend-optimizer`,
-  `html-cache`).
+- Packages: the Capell core trio — `capell-app/core` (CMS), `capell-app/admin`
+  (Filament panel), `capell-app/frontend` (public rendering). Add further
+  `capell-app/*` packages as needed.
 
 ## How it is deployed (control-plane driven)
 
@@ -34,25 +33,29 @@ So the skeleton itself carries **no deploy script and no install command** — t
 control plane owns those. Its only responsibilities are: be a valid Laravel root,
 require the Capell packages, and resolve them from the registry.
 
-## Private Composer registry
+## Private packages (GitHub)
 
-`composer.json` resolves `capell-app/*` from a `composer`-type registry:
+`composer.json` resolves the `capell-app/*` packages straight from their GitHub
+repositories as VCS sources:
 
 ```json
 "repositories": [
-    { "type": "composer", "url": "https://composer.capell.app" }
+    { "type": "vcs", "url": "https://github.com/capell-app/core" },
+    { "type": "vcs", "url": "https://github.com/capell-app/admin" },
+    { "type": "vcs", "url": "https://github.com/capell-app/frontend" }
 ]
 ```
 
-Replace that URL with your registry (e.g. Private Packagist, which serves the
-`capell-app/capell` + `capell-app/packages` monorepos natively). The control
-plane supplies `COMPOSER_AUTH` to the Cloud environment (from
-`CAPELL_CLOUD_COMPOSER_AUTH`). For a standalone/manual deploy, set `COMPOSER_AUTH`
-yourself in the Cloud environment:
+These repos are **private for now**, so `composer install` needs a GitHub token
+with read access to the `capell-app` org. Provide it via `COMPOSER_AUTH` in the
+Cloud environment (the control plane supplies this from
+`CAPELL_CLOUD_COMPOSER_AUTH`):
 
 ```
-COMPOSER_AUTH={"http-basic":{"composer.capell.app":{"username":"token","password":"<TOKEN>"}}}
+COMPOSER_AUTH={"github-oauth":{"github.com":"<GITHUB_TOKEN>"}}
 ```
+
+Once the packages are made public, drop the token — no auth required.
 
 ## Local development
 
