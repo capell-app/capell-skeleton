@@ -715,12 +715,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:capell-app/admin.git",
-                "reference": "caf9b5667b20e04697eb6e1e6c7e4f0ac7f79c55"
+                "reference": "1d046b2404fe40a8a65cdc2845d2a69463bbfc8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/capell-app/admin/zipball/caf9b5667b20e04697eb6e1e6c7e4f0ac7f79c55",
-                "reference": "caf9b5667b20e04697eb6e1e6c7e4f0ac7f79c55",
+                "url": "https://api.github.com/repos/capell-app/admin/zipball/1d046b2404fe40a8a65cdc2845d2a69463bbfc8e",
+                "reference": "1d046b2404fe40a8a65cdc2845d2a69463bbfc8e",
                 "shasum": ""
             },
             "require": {
@@ -792,10 +792,10 @@
                 "laravel"
             ],
             "support": {
-                "source": "https://github.com/capell-app/admin/tree/v2.0.50",
+                "source": "https://github.com/capell-app/admin/tree/v2.0.52",
                 "issues": "https://github.com/capell-app/admin/issues"
             },
-            "time": "2026-06-10T07:59:49+00:00"
+            "time": "2026-06-10T18:16:49+00:00"
         },
         {
             "name": "capell-app/block-library",
@@ -872,12 +872,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:capell-app/core.git",
-                "reference": "8dc5054d1b22556e77298817285a533337a3179e"
+                "reference": "97ed4dbe6d700e2ee3cb96ce1ca497703bfaafbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/capell-app/core/zipball/8dc5054d1b22556e77298817285a533337a3179e",
-                "reference": "8dc5054d1b22556e77298817285a533337a3179e",
+                "url": "https://api.github.com/repos/capell-app/core/zipball/97ed4dbe6d700e2ee3cb96ce1ca497703bfaafbe",
+                "reference": "97ed4dbe6d700e2ee3cb96ce1ca497703bfaafbe",
                 "shasum": ""
             },
             "require": {
@@ -942,10 +942,10 @@
                 "laravel"
             ],
             "support": {
-                "source": "https://github.com/capell-app/core/tree/v2.0.50",
+                "source": "https://github.com/capell-app/core/tree/v2.0.52",
                 "issues": "https://github.com/capell-app/core/issues"
             },
-            "time": "2026-06-10T08:11:03+00:00"
+            "time": "2026-06-10T18:16:53+00:00"
         },
         {
             "name": "capell-app/foundation-theme",
@@ -1018,12 +1018,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:capell-app/frontend.git",
-                "reference": "d80637d9e2d4674a4081211b4f7f32010dc0a65f"
+                "reference": "6b7d2a897faaa29de122bc128b6d2c716f983e70"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/capell-app/frontend/zipball/d80637d9e2d4674a4081211b4f7f32010dc0a65f",
-                "reference": "d80637d9e2d4674a4081211b4f7f32010dc0a65f",
+                "url": "https://api.github.com/repos/capell-app/frontend/zipball/6b7d2a897faaa29de122bc128b6d2c716f983e70",
+                "reference": "6b7d2a897faaa29de122bc128b6d2c716f983e70",
                 "shasum": ""
             },
             "require": {
@@ -1083,10 +1083,10 @@
                 "laravel"
             ],
             "support": {
-                "source": "https://github.com/capell-app/frontend/tree/v2.0.50",
+                "source": "https://github.com/capell-app/frontend/tree/v2.0.52",
                 "issues": "https://github.com/capell-app/frontend/issues"
             },
-            "time": "2026-06-09T20:26:43+00:00"
+            "time": "2026-06-10T13:35:03+00:00"
         },
         {
             "name": "capell-app/layout-builder",
