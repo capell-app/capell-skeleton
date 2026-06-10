@@ -33,6 +33,25 @@ So the skeleton itself carries **no deploy script and no install command** — t
 control plane owns those. Its only responsibilities are: be a valid Laravel root,
 require the Capell packages, and resolve them from the registry.
 
+## What is committed source vs. built at install
+
+This repo is **self-contained**: a clone reproduces the running site after a
+plain `composer install && npm ci && npm run build`. Everything that defines the
+app is committed source:
+
+- `app/Providers/Filament/AdminPanelProvider.php` and its registration in
+  `bootstrap/providers.php` — the Capell-integrated Filament admin panel. These
+  are **committed**, not scaffolded at deploy time, so a local clone has a
+  working `/admin`.
+- `composer.lock` and `package-lock.json` — pinned, reproducible installs.
+- `composer.json` `post-autoload-dump` runs `filament:upgrade` and publishes the
+  `capell-frontend` assets on every `composer install`, so the published vendor
+  assets (gitignored, under `public/css`, `public/js`, `public/vendor`,
+  `public/fonts`, `public/build`) are regenerated on both Cloud and local clones.
+
+Nothing app-defining is generated only inside the ephemeral Cloud build
+container any more.
+
 ## Private packages (GitHub)
 
 `composer.json` resolves the `capell-app/*` packages straight from their GitHub
