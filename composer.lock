@@ -792,7 +792,7 @@
                 "laravel"
             ],
             "support": {
-                "source": "https://github.com/capell-app/admin/tree/v2.0.52",
+                "source": "https://github.com/capell-app/admin/tree/v2.0.53",
                 "issues": "https://github.com/capell-app/admin/issues"
             },
             "time": "2026-06-10T18:16:49+00:00"
@@ -942,7 +942,7 @@
                 "laravel"
             ],
             "support": {
-                "source": "https://github.com/capell-app/core/tree/v2.0.52",
+                "source": "https://github.com/capell-app/core/tree/v2.0.53",
                 "issues": "https://github.com/capell-app/core/issues"
             },
             "time": "2026-06-10T18:16:53+00:00"
@@ -1083,7 +1083,7 @@
                 "laravel"
             ],
             "support": {
-                "source": "https://github.com/capell-app/frontend/tree/v2.0.52",
+                "source": "https://github.com/capell-app/frontend/tree/v2.0.53",
                 "issues": "https://github.com/capell-app/frontend/issues"
             },
             "time": "2026-06-10T13:35:03+00:00"
