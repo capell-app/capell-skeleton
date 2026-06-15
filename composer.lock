@@ -792,7 +792,7 @@
                 "laravel"
             ],
             "support": {
-                "source": "https://github.com/capell-app/admin/tree/v2.0.62",
+                "source": "https://github.com/capell-app/admin/tree/v2.0.63",
                 "issues": "https://github.com/capell-app/admin/issues"
             },
             "time": "2026-06-15T05:22:45+00:00"
@@ -942,7 +942,7 @@
                 "laravel"
             ],
             "support": {
-                "source": "https://github.com/capell-app/core/tree/v2.0.62",
+                "source": "https://github.com/capell-app/core/tree/v2.0.63",
                 "issues": "https://github.com/capell-app/core/issues"
             },
             "time": "2026-06-15T05:39:04+00:00"
@@ -953,12 +953,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:capell-app/foundation-theme.git",
-                "reference": "94aedae79ff694aef070749e40dc6d0cddceae68"
+                "reference": "216fe4d168f5400c383ae1eb08ab0bb5ad3d82be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/capell-app/foundation-theme/zipball/94aedae79ff694aef070749e40dc6d0cddceae68",
-                "reference": "94aedae79ff694aef070749e40dc6d0cddceae68",
+                "url": "https://api.github.com/repos/capell-app/foundation-theme/zipball/216fe4d168f5400c383ae1eb08ab0bb5ad3d82be",
+                "reference": "216fe4d168f5400c383ae1eb08ab0bb5ad3d82be",
                 "shasum": ""
             },
             "require": {
@@ -1010,7 +1010,7 @@
                 "docs": "https://docs.capell.app/packages/foundation-theme",
                 "issues": "https://github.com/capell-app/foundation-theme/issues"
             },
-            "time": "2026-06-15T05:43:39+00:00"
+            "time": "2026-06-15T06:02:17+00:00"
         },
         {
             "name": "capell-app/frontend",
@@ -1083,7 +1083,7 @@
                 "laravel"
             ],
             "support": {
-                "source": "https://github.com/capell-app/frontend/tree/v2.0.62",
+                "source": "https://github.com/capell-app/frontend/tree/v2.0.63",
                 "issues": "https://github.com/capell-app/frontend/issues"
             },
             "time": "2026-06-15T05:39:08+00:00"
@@ -1094,12 +1094,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:capell-app/layout-builder.git",
-                "reference": "0884210ec927c8e4ecd9f5c9b81cafd90ef1f08f"
+                "reference": "7e8550d485bf8bee749eec0f5deb5ff7c585d1ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/capell-app/layout-builder/zipball/0884210ec927c8e4ecd9f5c9b81cafd90ef1f08f",
-                "reference": "0884210ec927c8e4ecd9f5c9b81cafd90ef1f08f",
+                "url": "https://api.github.com/repos/capell-app/layout-builder/zipball/7e8550d485bf8bee749eec0f5deb5ff7c585d1ca",
+                "reference": "7e8550d485bf8bee749eec0f5deb5ff7c585d1ca",
                 "shasum": ""
             },
             "require": {
@@ -1150,7 +1150,7 @@
                 "docs": "https://docs.capell.app/packages/layout-builder",
                 "issues": "https://github.com/capell-app/layout-builder/issues"
             },
-            "time": "2026-06-15T05:44:13+00:00"
+            "time": "2026-06-15T06:02:52+00:00"
         },
         {
             "name": "capell-app/password-policy",
@@ -1158,12 +1158,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:capell-app/password-policy.git",
-                "reference": "4c69aeaa23dcccd16658c6fd4963261d6019aaf4"
+                "reference": "0981f4f1897167aefe9b443267744ecc4887c7d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/capell-app/password-policy/zipball/4c69aeaa23dcccd16658c6fd4963261d6019aaf4",
-                "reference": "4c69aeaa23dcccd16658c6fd4963261d6019aaf4",
+                "url": "https://api.github.com/repos/capell-app/password-policy/zipball/0981f4f1897167aefe9b443267744ecc4887c7d6",
+                "reference": "0981f4f1897167aefe9b443267744ecc4887c7d6",
                 "shasum": ""
             },
             "require": {
@@ -1232,7 +1232,7 @@
                 "docs": "https://docs.capell.app/packages/password-policy",
                 "issues": "https://github.com/capell-app/password-policy/issues"
             },
-            "time": "2026-06-15T05:00:05+00:00"
+            "time": "2026-06-15T06:03:18+00:00"
         },
         {
             "name": "carbonphp/carbon-doctrine-types",
