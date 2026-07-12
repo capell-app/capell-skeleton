@@ -2,33 +2,14 @@
     "$schema": "https://getcomposer.org/schema.json",
     "name": "capell-app/capell-skeleton",
     "type": "project",
-    "description": "Deployable Capell skeleton for Laravel Cloud.",
-    "keywords": ["laravel", "capell", "cms", "skeleton"],
+    "description": "Create-project starter for a Laravel application with the public Capell CMS foundation.",
+    "keywords": ["laravel", "filament", "capell", "cms", "starter"],
     "license": "proprietary",
-    "repositories": [
-        { "type": "vcs", "url": "https://github.com/capell-app/core" },
-        { "type": "vcs", "url": "https://github.com/capell-app/admin" },
-        { "type": "vcs", "url": "https://github.com/capell-app/frontend" },
-        { "type": "vcs", "url": "https://github.com/capell-app/foundation-theme" },
-        { "type": "vcs", "url": "https://github.com/capell-app/layout-builder" },
-        { "type": "vcs", "url": "https://github.com/capell-app/block-library" },
-        { "type": "vcs", "url": "https://github.com/capell-app/password-policy" },
-        { "type": "vcs", "url": "https://github.com/capell-app/installer" },
-        { "type": "vcs", "url": "https://github.com/capell-app/marketplace" }
-    ],
     "require": {
         "php": "^8.4",
         "laravel/framework": "^13.8",
         "laravel/tinker": "^3.0",
-        "capell-app/core": "4.x-dev",
-        "capell-app/admin": "4.x-dev",
-        "capell-app/frontend": "4.x-dev",
-        "capell-app/foundation-theme": "4.x-dev",
-        "capell-app/layout-builder": "4.x-dev",
-        "capell-app/block-library": "4.x-dev",
-        "capell-app/password-policy": "4.x-dev",
-        "capell-app/installer": "4.x-dev",
-        "capell-app/marketplace": "4.x-dev"
+        "capell-app/capell": "^0.0.4"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -99,6 +80,5 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "dev",
     "prefer-stable": true
 }
