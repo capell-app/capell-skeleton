@@ -21,9 +21,9 @@ final class StarterContractTest extends TestCase
         );
 
         self::assertSame('project', $composer['type'] ?? null);
-        self::assertSame('^0.0.4', $composer['require']['capell-app/capell'] ?? null);
+        self::assertSame('^0.0.14', $composer['require']['capell-app/capell'] ?? null);
         self::assertArrayNotHasKey('repositories', $composer);
-        self::assertTrue(Semver::satisfies('0.0.4', $composer['require']['capell-app/capell']));
+        self::assertTrue(Semver::satisfies('0.0.14', $composer['require']['capell-app/capell']));
     }
 
     #[Test]
