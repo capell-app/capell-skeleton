@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b06327caf025e916002f456df06929eb",
+    "content-hash": "e92f183fa671f54ae6480988b45ba582",
     "packages": [
         {
             "name": "aimeos/laravel-nestedset",
@@ -775,16 +775,16 @@
         },
         {
             "name": "capell-app/admin",
-            "version": "v0.0.4",
+            "version": "v0.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/capell-app/admin.git",
-                "reference": "b748886cde41eccb9f4552cbb7f31b1cb06fcbc8"
+                "reference": "d192a51c727e771508802f694e2e3e803d19e066"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/capell-app/admin/zipball/b748886cde41eccb9f4552cbb7f31b1cb06fcbc8",
-                "reference": "b748886cde41eccb9f4552cbb7f31b1cb06fcbc8",
+                "url": "https://api.github.com/repos/capell-app/admin/zipball/d192a51c727e771508802f694e2e3e803d19e066",
+                "reference": "d192a51c727e771508802f694e2e3e803d19e066",
                 "shasum": ""
             },
             "require": {
@@ -852,30 +852,30 @@
             ],
             "support": {
                 "issues": "https://github.com/capell-app/admin/issues",
-                "source": "https://github.com/capell-app/admin/tree/v0.0.4"
+                "source": "https://github.com/capell-app/admin/tree/v0.0.14"
             },
-            "time": "2026-07-11T18:46:29+00:00"
+            "time": "2026-07-12T06:44:59+00:00"
         },
         {
             "name": "capell-app/capell",
-            "version": "v0.0.4",
+            "version": "v0.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/capell-app/capell-distribution.git",
-                "reference": "eab1e802238b040405152fa8b3c147dda79e0815"
+                "reference": "8b9327ab541a3df6201cceeefde351f446358c52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/capell-app/capell-distribution/zipball/eab1e802238b040405152fa8b3c147dda79e0815",
-                "reference": "eab1e802238b040405152fa8b3c147dda79e0815",
+                "url": "https://api.github.com/repos/capell-app/capell-distribution/zipball/8b9327ab541a3df6201cceeefde351f446358c52",
+                "reference": "8b9327ab541a3df6201cceeefde351f446358c52",
                 "shasum": ""
             },
             "require": {
-                "capell-app/admin": "^0.0.4",
-                "capell-app/core": "^0.0.4",
-                "capell-app/frontend": "^0.0.4",
-                "capell-app/installer": "^0.0.4",
-                "capell-app/marketplace": "^0.0.4",
+                "capell-app/admin": "^0.0.14",
+                "capell-app/core": "^0.0.14",
+                "capell-app/frontend": "^0.0.14",
+                "capell-app/installer": "^0.0.14",
+                "capell-app/marketplace": "^0.0.14",
                 "php": "^8.4"
             },
             "type": "metapackage",
@@ -891,22 +891,22 @@
             "description": "Optional complete Capell CMS distribution.",
             "support": {
                 "issues": "https://github.com/capell-app/capell-distribution/issues",
-                "source": "https://github.com/capell-app/capell-distribution/tree/v0.0.4"
+                "source": "https://github.com/capell-app/capell-distribution/tree/v0.0.14"
             },
-            "time": "2026-07-11T19:48:30+00:00"
+            "time": "2026-07-12T08:54:12+00:00"
         },
         {
             "name": "capell-app/core",
-            "version": "v0.0.4",
+            "version": "v0.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/capell-app/core.git",
-                "reference": "af1622ecdafd50ebf924356d7975e2a760b35faf"
+                "reference": "1146e2b07b34c7c4929b38a8210dd054263a09ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/capell-app/core/zipball/af1622ecdafd50ebf924356d7975e2a760b35faf",
-                "reference": "af1622ecdafd50ebf924356d7975e2a760b35faf",
+                "url": "https://api.github.com/repos/capell-app/core/zipball/1146e2b07b34c7c4929b38a8210dd054263a09ce",
+                "reference": "1146e2b07b34c7c4929b38a8210dd054263a09ce",
                 "shasum": ""
             },
             "require": {
@@ -969,22 +969,22 @@
             ],
             "support": {
                 "issues": "https://github.com/capell-app/core/issues",
-                "source": "https://github.com/capell-app/core/tree/v0.0.4"
+                "source": "https://github.com/capell-app/core/tree/v0.0.14"
             },
-            "time": "2026-07-11T18:46:24+00:00"
+            "time": "2026-07-12T08:49:30+00:00"
         },
         {
             "name": "capell-app/frontend",
-            "version": "v0.0.4",
+            "version": "v0.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/capell-app/frontend.git",
-                "reference": "68e19819948e29f3a86f309222ddabe53bedbfe1"
+                "reference": "d85c9954f976dac7d48758b5b8f2503b0d2a2085"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/capell-app/frontend/zipball/68e19819948e29f3a86f309222ddabe53bedbfe1",
-                "reference": "68e19819948e29f3a86f309222ddabe53bedbfe1",
+                "url": "https://api.github.com/repos/capell-app/frontend/zipball/d85c9954f976dac7d48758b5b8f2503b0d2a2085",
+                "reference": "d85c9954f976dac7d48758b5b8f2503b0d2a2085",
                 "shasum": ""
             },
             "require": {
@@ -1040,22 +1040,22 @@
             ],
             "support": {
                 "issues": "https://github.com/capell-app/frontend/issues",
-                "source": "https://github.com/capell-app/frontend/tree/v0.0.4"
+                "source": "https://github.com/capell-app/frontend/tree/v0.0.14"
             },
-            "time": "2026-07-11T18:41:35+00:00"
+            "time": "2026-07-12T06:44:59+00:00"
         },
         {
             "name": "capell-app/installer",
-            "version": "v0.0.4",
+            "version": "v0.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/capell-app/installer.git",
-                "reference": "7693310dc9fbe2c18ecc480fca504ebd64bae766"
+                "reference": "51bfa21233461d5ec831b67b6cbd9183c2c29c85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/capell-app/installer/zipball/7693310dc9fbe2c18ecc480fca504ebd64bae766",
-                "reference": "7693310dc9fbe2c18ecc480fca504ebd64bae766",
+                "url": "https://api.github.com/repos/capell-app/installer/zipball/51bfa21233461d5ec831b67b6cbd9183c2c29c85",
+                "reference": "51bfa21233461d5ec831b67b6cbd9183c2c29c85",
                 "shasum": ""
             },
             "require": {
@@ -1101,27 +1101,27 @@
             ],
             "support": {
                 "issues": "https://github.com/capell-app/installer/issues",
-                "source": "https://github.com/capell-app/installer/tree/v0.0.4"
+                "source": "https://github.com/capell-app/installer/tree/v0.0.14"
             },
-            "time": "2026-07-11T18:41:37+00:00"
+            "time": "2026-07-12T06:44:59+00:00"
         },
         {
             "name": "capell-app/marketplace",
-            "version": "v0.0.4",
+            "version": "v0.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/capell-app/marketplace.git",
-                "reference": "3ccb327d1d1bbcd9a61f3c8f7c5db902fb7f943a"
+                "reference": "e4d26402e71ecae0ea2223ec32faf551e0d077cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/capell-app/marketplace/zipball/3ccb327d1d1bbcd9a61f3c8f7c5db902fb7f943a",
-                "reference": "3ccb327d1d1bbcd9a61f3c8f7c5db902fb7f943a",
+                "url": "https://api.github.com/repos/capell-app/marketplace/zipball/e4d26402e71ecae0ea2223ec32faf551e0d077cf",
+                "reference": "e4d26402e71ecae0ea2223ec32faf551e0d077cf",
                 "shasum": ""
             },
             "require": {
-                "capell-app/admin": "^0.0.4 || 0.0.x-dev",
-                "capell-app/core": "^0.0.4 || 0.0.x-dev",
+                "capell-app/admin": "^0.0.14 || 0.0.x-dev",
+                "capell-app/core": "^0.0.14 || 0.0.x-dev",
                 "laravel/framework": "^12.41.1|^13.0",
                 "lorisleiva/laravel-actions": "^2.8",
                 "php": "^8.4",
@@ -1172,9 +1172,9 @@
             ],
             "support": {
                 "issues": "https://github.com/capell-app/marketplace/issues",
-                "source": "https://github.com/capell-app/marketplace/tree/v0.0.4"
+                "source": "https://github.com/capell-app/marketplace/tree/v0.0.14"
             },
-            "time": "2026-07-11T19:24:06+00:00"
+            "time": "2026-07-12T08:53:15+00:00"
         },
         {
             "name": "carbonphp/carbon-doctrine-types",
