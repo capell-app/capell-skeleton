@@ -1,90 +1,104 @@
 {
-  "$schema": "https://getcomposer.org/schema.json",
-  "name": "capell-app/capell-skeleton",
-  "type": "project",
-  "description": "Create-project starter for a Laravel application with the public Capell CMS foundation.",
-  "keywords": [
-    "laravel",
-    "filament",
-    "capell",
-    "cms",
-    "starter"
-  ],
-  "license": "proprietary",
-  "require": {
-    "php": "^8.4",
-    "laravel/framework": "^13.8",
-    "laravel/tinker": "^3.0",
-    "capell-app/capell": "^0.0"
-  },
-  "require-dev": {
-    "fakerphp/faker": "^1.23",
-    "laravel/pail": "^1.2.5",
-    "laravel/pint": "^1.27",
-    "mockery/mockery": "^1.6",
-    "nunomaduro/collision": "^8.6",
-    "phpunit/phpunit": "^12.5.12"
-  },
-  "autoload": {
-    "psr-4": {
-      "App\\": "app/",
-      "Database\\Factories\\": "database/factories/",
-      "Database\\Seeders\\": "database/seeders/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Tests\\": "tests/"
-    }
-  },
-  "scripts": {
-    "setup": [
-      "composer install",
-      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
-      "@php artisan key:generate",
-      "@php artisan migrate --force",
-      "npm install --ignore-scripts",
-      "npm run build"
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "capell-app/capell-skeleton",
+    "type": "project",
+    "description": "Deployable Capell skeleton for Laravel Cloud.",
+    "keywords": ["laravel", "capell", "cms", "skeleton"],
+    "license": "proprietary",
+    "repositories": [
+        { "type": "vcs", "url": "https://github.com/capell-app/core" },
+        { "type": "vcs", "url": "https://github.com/capell-app/admin" },
+        { "type": "vcs", "url": "https://github.com/capell-app/frontend" },
+        { "type": "vcs", "url": "https://github.com/capell-app/foundation-theme" },
+        { "type": "vcs", "url": "https://github.com/capell-app/layout-builder" },
+        { "type": "vcs", "url": "https://github.com/capell-app/block-library" },
+        { "type": "vcs", "url": "https://github.com/capell-app/password-policy" },
+        { "type": "vcs", "url": "https://github.com/capell-app/installer" },
+        { "type": "vcs", "url": "https://github.com/capell-app/marketplace" }
     ],
-    "dev": [
-      "Composer\\Config::disableProcessTimeout",
-      "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1 --timeout=0\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite --kill-others"
-    ],
-    "test": [
-      "@php artisan config:clear --ansi @no_additional_args",
-      "@php artisan test"
-    ],
-    "post-autoload-dump": [
-      "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-      "@php artisan package:discover --ansi",
-      "@php artisan filament:upgrade",
-      "@php artisan vendor:publish --tag=capell-frontend-assets --ansi --force"
-    ],
-    "post-update-cmd": [
-      "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
-    ],
-    "post-root-package-install": [
-      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-    ],
-    "post-create-project-cmd": [
-      "@php artisan key:generate --ansi"
-    ]
-  },
-  "extra": {
-    "laravel": {
-      "dont-discover": []
-    }
-  },
-  "config": {
-    "optimize-autoloader": true,
-    "preferred-install": "dist",
-    "sort-packages": true,
-    "platform": {
-      "php": "8.4.1"
+    "require": {
+        "php": "^8.4",
+        "laravel/framework": "^13.8",
+        "laravel/tinker": "^3.0",
+        "capell-app/core": "^1.0",
+        "capell-app/admin": "^1.0",
+        "capell-app/frontend": "^1.0",
+        "capell-app/foundation-theme": "^1.0",
+        "capell-app/layout-builder": "^1.0",
+        "capell-app/block-library": "^1.0",
+        "capell-app/password-policy": "^1.0",
+        "capell-app/installer": "^1.0",
+        "capell-app/marketplace": "^1.0"
     },
-    "allow-plugins": {
-      "php-http/discovery": true
-    }
-  },
-  "prefer-stable": true
+    "require-dev": {
+        "fakerphp/faker": "^1.23",
+        "laravel/pail": "^1.2.5",
+        "laravel/pint": "^1.27",
+        "mockery/mockery": "^1.6",
+        "nunomaduro/collision": "^8.6",
+        "phpunit/phpunit": "^12.5.12"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "setup": [
+            "composer install",
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "@php artisan key:generate",
+            "@php artisan migrate --force",
+            "npm install --ignore-scripts",
+            "npm run build"
+        ],
+        "dev": [
+            "Composer\\Config::disableProcessTimeout",
+            "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1 --timeout=0\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite --kill-others"
+        ],
+        "test": [
+            "@php artisan config:clear --ansi @no_additional_args",
+            "@php artisan test"
+        ],
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi",
+            "@php artisan filament:upgrade",
+            "@php artisan vendor:publish --tag=capell-frontend-assets --ansi --force"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "platform": {
+            "php": "8.4.1"
+        },
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
