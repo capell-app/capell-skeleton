@@ -49,9 +49,15 @@ final class StarterContractTest extends TestCase
         $composer = $this->composerManifest();
         $setup = $composer['scripts']['setup'] ?? [];
         $readme = file_get_contents(dirname(__DIR__, 2).'/README.md');
+        $adminTheme = dirname(__DIR__, 2).'/resources/css/filament/admin/theme.css';
 
         self::assertContains('@php artisan migrate --force', $setup);
         self::assertContains('npm run build', $setup);
+        self::assertFileExists($adminTheme);
+        self::assertStringContainsString(
+            'vendor/capell-app/welcome-tour/resources/views/**/*.blade.php',
+            (string) file_get_contents($adminTheme),
+        );
         self::assertIsString($readme);
         self::assertStringContainsString('composer create-project capell-app/capell-skeleton', $readme);
         self::assertStringContainsString('php artisan migrate --force', $readme);
