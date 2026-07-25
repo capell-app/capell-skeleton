@@ -9,12 +9,13 @@
         { "type": "vcs", "url": "https://github.com/capell-app/core" },
         { "type": "vcs", "url": "https://github.com/capell-app/admin" },
         { "type": "vcs", "url": "https://github.com/capell-app/frontend" },
-        { "type": "vcs", "url": "https://github.com/capell-app/foundation-theme" },
+        { "type": "vcs", "url": "https://github.com/capell-app/theme-foundation" },
         { "type": "vcs", "url": "https://github.com/capell-app/layout-builder" },
         { "type": "vcs", "url": "https://github.com/capell-app/block-library" },
-        { "type": "vcs", "url": "https://github.com/capell-app/password-policy" },
         { "type": "vcs", "url": "https://github.com/capell-app/installer" },
-        { "type": "vcs", "url": "https://github.com/capell-app/marketplace" }
+        { "type": "vcs", "url": "https://github.com/capell-app/marketplace" },
+        { "type": "vcs", "url": "https://github.com/capell-app/navigation" },
+        { "type": "vcs", "url": "https://github.com/capell-app/welcome-tour" }
     ],
     "require": {
         "php": "^8.4",
@@ -23,12 +24,13 @@
         "capell-app/core": "^1.0",
         "capell-app/admin": "^1.0",
         "capell-app/frontend": "^1.0",
-        "capell-app/foundation-theme": "^1.0",
+        "capell-app/theme-foundation": "^1.0",
         "capell-app/layout-builder": "^1.0",
         "capell-app/block-library": "^1.0",
-        "capell-app/password-policy": "^1.0",
         "capell-app/installer": "^1.0",
-        "capell-app/marketplace": "^1.0"
+        "capell-app/marketplace": "^1.0",
+        "capell-app/navigation": "^1.0",
+        "capell-app/welcome-tour": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

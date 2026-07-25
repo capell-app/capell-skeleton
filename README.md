@@ -4,8 +4,8 @@ A minimal Laravel 13 application with the public Capell CMS foundation already
 wired to a Filament admin panel. Use it to evaluate Capell without first
 assembling a fresh Laravel app by hand.
 
-Capell's source and Packagist packages are public under the Capell licence.
-Paid Marketplace packages use authenticated Composer access after purchase.
+Capell packages are distributed under the Capell licence. Paid Marketplace
+packages use authenticated Composer access after purchase.
 
 ## Create a project
 
@@ -24,6 +24,7 @@ For a local SQLite trial:
 touch database/database.sqlite
 php artisan migrate --force
 php artisan capell:install --demo --url=http://localhost:8000
+php artisan capell:doctor
 npm ci
 npm run build
 php artisan serve
@@ -40,7 +41,9 @@ the same command.
 
 - Laravel 13 and a normal application-owned `app/`, `routes/`, and `resources/`
   tree.
-- The stable `capell-app/capell` foundation from public Packagist.
+- Stable `capell-app/*` packages for Core, Admin, Frontend, the Foundation
+  theme, Layout Builder, Block Library, Navigation, Welcome Tour, Installer,
+  and Marketplace.
 - A committed Capell-aware Filament panel provider.
 - SQLite-ready local defaults plus database cache, session, queue, and user
   migrations.
