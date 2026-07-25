@@ -1,0 +1,16 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+
+@source '../../../../app/Filament/**/*';
+@source '../../../../resources/views/filament/**/*';
+@source '../../../../storage/capell/tailwind-classes.txt';
+
+@source '../../../../vendor/capell-app/admin/resources/views/**/*.blade.php';
+@source '../../../../vendor/capell-app/block-library/resources/views/**/*.blade.php';
+@source '../../../../vendor/capell-app/core/resources/views/**/*.blade.php';
+@source '../../../../vendor/capell-app/frontend/resources/views/**/*.blade.php';
+@source '../../../../vendor/capell-app/installer/resources/views/**/*.blade.php';
+@source '../../../../vendor/capell-app/layout-builder/resources/views/**/*.blade.php';
+@source '../../../../vendor/capell-app/marketplace/resources/views/**/*.blade.php';
+@source '../../../../vendor/capell-app/navigation/resources/views/**/*.blade.php';
+@source '../../../../vendor/capell-app/theme-foundation/resources/views/**/*.blade.php';
+@source '../../../../vendor/capell-app/welcome-tour/resources/views/**/*.blade.php';
