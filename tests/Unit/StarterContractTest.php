@@ -38,40 +38,9 @@ final class StarterContractTest extends TestCase
     }
 
     #[Test]
-    public function it_uses_only_https_vcs_repositories_for_the_split_packages(): void
+    public function it_resolves_the_free_baseline_only_from_packagist(): void
     {
-        $repositories = $this->composerManifest()['repositories'] ?? [];
-
-        self::assertSame([
-            'https://github.com/capell-app/core',
-            'https://github.com/capell-app/admin',
-            'https://github.com/capell-app/frontend',
-            'https://github.com/capell-app/theme-foundation',
-            'https://github.com/capell-app/layout-builder',
-            'https://github.com/capell-app/block-library',
-            'https://github.com/capell-app/installer',
-            'https://github.com/capell-app/marketplace',
-            'https://github.com/capell-app/navigation',
-            'https://github.com/capell-app/welcome-tour',
-        ], array_column($repositories, 'url'));
-
-        foreach ($repositories as $repository) {
-            self::assertSame('vcs', $repository['type'] ?? null);
-            self::assertMatchesRegularExpression(
-                '#^https://github\.com/capell-app/[a-z0-9-]+$#',
-                $repository['url'] ?? '',
-            );
-            self::assertStringNotContainsString('capell-packages', $repository['url']);
-        }
-
-        $encodedRepositories = json_encode($repositories, JSON_THROW_ON_ERROR);
-
-        self::assertStringNotContainsString('"type":"path"', $encodedRepositories);
-        self::assertStringNotContainsString('git@', $encodedRepositories);
-        self::assertStringNotContainsString('ssh://', $encodedRepositories);
-        self::assertStringNotContainsString('.deploy-packages', $encodedRepositories);
-        self::assertStringNotContainsString('composer.local', $encodedRepositories);
-        self::assertStringNotContainsString('foundation-theme', $encodedRepositories);
+        self::assertArrayNotHasKey('repositories', $this->composerManifest());
     }
 
     #[Test]
