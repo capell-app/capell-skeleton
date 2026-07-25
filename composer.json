@@ -5,18 +5,6 @@
     "description": "Deployable Capell skeleton for Laravel Cloud.",
     "keywords": ["laravel", "capell", "cms", "skeleton"],
     "license": "proprietary",
-    "repositories": [
-        { "type": "vcs", "url": "https://github.com/capell-app/core" },
-        { "type": "vcs", "url": "https://github.com/capell-app/admin" },
-        { "type": "vcs", "url": "https://github.com/capell-app/frontend" },
-        { "type": "vcs", "url": "https://github.com/capell-app/theme-foundation" },
-        { "type": "vcs", "url": "https://github.com/capell-app/layout-builder" },
-        { "type": "vcs", "url": "https://github.com/capell-app/block-library" },
-        { "type": "vcs", "url": "https://github.com/capell-app/installer" },
-        { "type": "vcs", "url": "https://github.com/capell-app/marketplace" },
-        { "type": "vcs", "url": "https://github.com/capell-app/navigation" },
-        { "type": "vcs", "url": "https://github.com/capell-app/welcome-tour" }
-    ],
     "require": {
         "php": "^8.4",
         "laravel/framework": "^13.8",
