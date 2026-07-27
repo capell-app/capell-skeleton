@@ -50,12 +50,15 @@ final class StarterContractTest extends TestCase
     public function it_keeps_setup_build_migration_and_diagnostics_in_the_local_contract(): void
     {
         $composer = $this->composerManifest();
+        $node = $this->nodeManifest();
         $setup = $composer['scripts']['setup'] ?? [];
         $readme = file_get_contents(dirname(__DIR__, 2).'/README.md');
         $adminTheme = dirname(__DIR__, 2).'/resources/css/filament/admin/theme.css';
 
         self::assertContains('@php artisan migrate --force', $setup);
         self::assertContains('npm run build', $setup);
+        self::assertArrayHasKey('@tailwindcss/typography', $node['devDependencies']);
+        self::assertArrayHasKey('swiper', $node['devDependencies']);
         self::assertFileExists($adminTheme);
         self::assertStringContainsString(
             'vendor/capell-app/welcome-tour/resources/views/**/*.blade.php',
@@ -94,6 +97,19 @@ final class StarterContractTest extends TestCase
     {
         return json_decode(
             (string) file_get_contents(dirname(__DIR__, 2).'/composer.json'),
+            true,
+            512,
+            JSON_THROW_ON_ERROR,
+        );
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function nodeManifest(): array
+    {
+        return json_decode(
+            (string) file_get_contents(dirname(__DIR__, 2).'/package.json'),
             true,
             512,
             JSON_THROW_ON_ERROR,
