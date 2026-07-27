@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace Tests\Unit;
 
+use Capell\Marketplace\Jobs\ResumeMarketplaceInstallFlowJob;
+use Capell\Marketplace\Jobs\RunMarketplaceInstallAttemptJob;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
+use ReflectionClass;
 
 final class StarterContractTest extends TestCase
 {
@@ -67,6 +70,21 @@ final class StarterContractTest extends TestCase
         self::assertStringContainsString('Capell packages are distributed under the Capell licence.', $readme);
         self::assertStringContainsString('Paid Marketplace', $readme);
         self::assertStringContainsString('authenticated Composer access after purchase.', $readme);
+    }
+
+    #[Test]
+    public function it_keeps_async_queue_retries_above_the_marketplace_job_timeout(): void
+    {
+        /** @var array<string, array<string, mixed>> $connections */
+        $connections = (require dirname(__DIR__, 2).'/config/queue.php')['connections'];
+        $marketplaceJobTimeout = max(
+            (new ReflectionClass(ResumeMarketplaceInstallFlowJob::class))->getDefaultProperties()['timeout'],
+            (new ReflectionClass(RunMarketplaceInstallAttemptJob::class))->getDefaultProperties()['timeout'],
+        );
+
+        self::assertGreaterThan($marketplaceJobTimeout, $connections['database']['retry_after']);
+        self::assertGreaterThan($marketplaceJobTimeout, $connections['beanstalkd']['retry_after']);
+        self::assertGreaterThan($marketplaceJobTimeout, $connections['redis']['retry_after']);
     }
 
     /**
