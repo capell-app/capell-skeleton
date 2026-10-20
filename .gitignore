@@ -29,3 +29,9 @@ Thumbs.db
 /public/js
 /public/vendor
 /public/fonts
+
+# Owned, copied-package screenshot runtime overlays.
+/composer.capture.json
+/composer.capture.lock
+
+/public/page-cache/
