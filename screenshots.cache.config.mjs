@@ -25,7 +25,7 @@ export default {
                 DB_DATABASE: join(root, 'database/database.sqlite'),
                 DB_URL: undefined, APP_CONFIG_CACHE: undefined, PHPRC: undefined,
                 COMPOSER: 'composer.capture.json', CAPELL_RUNTIME_ROLE: 'combined',
-                PHP_CLI_SERVER_WORKERS: '1',
+                PHP_CLI_SERVER_WORKERS: undefined,
             },
         },
     },
