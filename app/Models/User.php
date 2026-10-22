@@ -5,6 +5,9 @@ namespace App\Models;
 use BezhanSalleh\FilamentShield\Traits\HasPanelShield;
 use Capell\Admin\Models\Concerns\HasImpersonation;
 use Capell\Core\Models\Concerns\HasSitePermissions;
+use Capell\Core\Support\Activity\ActivityLogCompat;
+use Capell\Core\Support\Activity\LogOptions;
+use Capell\Core\Support\Activity\LogsActivity;
 use Database\Factories\UserFactory;
 use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
@@ -12,8 +15,6 @@ use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Spatie\Activitylog\LogOptions;
-use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Permission\Traits\HasRoles;
 
 #[Fillable(['name', 'email', 'password'])]
@@ -38,11 +39,12 @@ class User extends Authenticatable implements FilamentUser
 
     public function getActivitylogOptions(): LogOptions
     {
-        return LogOptions::defaults()
-            ->useLogName('user')
-            ->logAll()
-            ->logExcept(['email_verified_at', 'password', 'remember_token', 'updated_at', 'created_at'])
-            ->logOnlyDirty()
-            ->dontSubmitEmptyLogs();
+        return ActivityLogCompat::options('user', [
+            'email_verified_at',
+            'password',
+            'remember_token',
+            'updated_at',
+            'created_at',
+        ]);
     }
 }
