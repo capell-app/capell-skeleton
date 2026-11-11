@@ -41,6 +41,24 @@ final class StarterContractTest extends TestCase
     }
 
     #[Test]
+    public function it_points_a_new_project_at_the_installer_after_generating_the_key(): void
+    {
+        $steps = $this->composerManifest()['scripts']['post-create-project-cmd'] ?? [];
+
+        self::assertSame(
+            ['@php artisan key:generate --ansi', '@php scripts/post-create-message.php'],
+            $steps,
+        );
+
+        $script = dirname(__DIR__, 2).'/scripts/post-create-message.php';
+        $output = shell_exec(escapeshellarg(PHP_BINARY).' '.escapeshellarg($script).' 2>&1');
+
+        self::assertIsString($output);
+        self::assertStringContainsString('php artisan capell:install', $output);
+        self::assertStringContainsString('about three minutes', $output);
+    }
+
+    #[Test]
     public function it_resolves_the_free_baseline_only_from_packagist(): void
     {
         self::assertArrayNotHasKey('repositories', $this->composerManifest());
