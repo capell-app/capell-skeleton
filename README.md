@@ -16,20 +16,19 @@ Laravel. Required PHP extensions are `fileinfo`, `intl`, `mbstring`, `openssl`,
 ```bash
 composer create-project capell-app/capell-skeleton my-capell-site
 cd my-capell-site
+php artisan capell:install
 ```
 
-For a local SQLite trial:
+`capell:install` asks six questions, each with a default: what you are building,
+the site name, its address, the first administrator, whether to start with sample
+content, and a final confirmation. It then migrates the database, installs Capell
+and builds the frontend, so `php artisan serve` is all that remains. Pass
+`--preset=<suite>` to choose the site type without being asked (for example
+`--preset=marketing`), and `--publish` to publish the draft pages as soon as the
+install finishes. The full option list is in the
+[install guide](https://docs.capell.app/getting-started/install/).
 
-```bash
-touch database/database.sqlite
-php artisan migrate --force
-php artisan capell:install --demo --url=http://localhost:8000
-php artisan capell:doctor
-npm ci
-npm run build
-php artisan serve
-```
-
+Run `php artisan capell:doctor` to confirm the result, then `php artisan serve`.
 Open the public site at `http://localhost:8000` and the admin panel at
 `http://localhost:8000/admin`.
 
