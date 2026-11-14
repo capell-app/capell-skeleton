@@ -59,6 +59,38 @@ Do not copy this skeleton over an existing app. Follow the
 [Capell install guide](https://docs.capell.app/getting-started/install/) so its
 providers, routes, frontend, and database changes are reviewed in place.
 
+## Build an extension in this app
+
+You can develop a Capell extension inside this project and load it through a
+Composer path repository. Scaffold the package under `packages/`:
+
+```bash
+php artisan capell:make:extension acme/example --name="Example" --profile=full --path=packages
+```
+
+This creates `packages/example` with its `composer.json`, `capell.json`
+manifest, service provider and tests. Point Composer at the package and
+require it:
+
+```bash
+composer config repositories.acme-example path packages/example
+composer require acme/example:@dev
+```
+
+Composer symlinks the package, so edits in `packages/example` apply straight
+away. The package stays inactive until Capell installs it. Preview the plan,
+then install:
+
+```bash
+php artisan capell:extension-install acme/example --dry-run
+php artisan capell:extension-install acme/example
+```
+
+[Build an extension end to end](https://docs.capell.app/packages/build-extension-end-to-end/)
+follows the same package from scaffold to a rendered result, and
+[Package authoring](https://docs.capell.app/platform/package-authoring/) covers
+the scaffold profiles and install commands.
+
 ## Laravel Cloud
 
 The same repository shape works on Laravel Cloud. Configure the database and
