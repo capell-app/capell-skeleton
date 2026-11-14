@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Rappasoft\LaravelAuthenticationLog\Traits\AuthenticationLoggable;
 use Spatie\Permission\Traits\HasRoles;
 
 #[Fillable(['name', 'email', 'password'])]
@@ -22,7 +23,7 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable implements FilamentUser
 {
     /** @use HasFactory<UserFactory> */
-    use HasFactory, HasImpersonation, HasPanelShield, HasRoles, HasSitePermissions, LogsActivity, Notifiable;
+    use AuthenticationLoggable, HasFactory, HasImpersonation, HasPanelShield, HasRoles, HasSitePermissions, LogsActivity, Notifiable;
 
     /**
      * Get the attributes that should be cast.
