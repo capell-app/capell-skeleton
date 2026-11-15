@@ -84,9 +84,10 @@ final class StarterContractTest extends TestCase
         );
         self::assertIsString($readme);
         self::assertStringContainsString('composer create-project capell-app/capell-skeleton', $readme);
-        self::assertStringContainsString('php artisan migrate --force', $readme);
+        self::assertStringContainsString('php artisan capell:install', $readme);
+        self::assertStringContainsString('--preset=', $readme);
+        self::assertStringContainsString('--publish', $readme);
         self::assertStringContainsString('php artisan capell:doctor', $readme);
-        self::assertStringContainsString('npm run build', $readme);
         self::assertStringContainsString('http://localhost:8000/admin', $readme);
         self::assertStringContainsString('Capell packages are distributed under the Capell licence.', $readme);
         self::assertStringContainsString('Paid Marketplace', $readme);
