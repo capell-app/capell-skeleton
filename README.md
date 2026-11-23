@@ -32,6 +32,9 @@ Run `php artisan capell:doctor` to confirm the result, then `php artisan serve`.
 Open the public site at `http://localhost:8000` and the admin panel at
 `http://localhost:8000/admin`.
 
+The starter does not record sign-in history. Install the optional Login Audit
+package if you want a record of who signed in and when.
+
 The installer runs real preflight checks before it mutates the application. If
 a requirement or writable path is missing, fix the reported failure and rerun
 the same command.
