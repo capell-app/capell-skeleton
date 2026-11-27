@@ -46,7 +46,11 @@ final class StarterContractTest extends TestCase
         $steps = $this->composerManifest()['scripts']['post-create-project-cmd'] ?? [];
 
         self::assertSame(
-            ['@php artisan key:generate --ansi', '@php scripts/post-create-message.php'],
+            [
+                '@php artisan key:generate --ansi',
+                '@php scripts/install-agent-context.php',
+                '@php scripts/post-create-message.php',
+            ],
             $steps,
         );
 
@@ -56,6 +60,66 @@ final class StarterContractTest extends TestCase
         self::assertIsString($output);
         self::assertStringContainsString('php artisan capell:install', $output);
         self::assertStringContainsString('about three minutes', $output);
+    }
+
+    #[Test]
+    public function it_gives_a_new_project_capell_agent_context_without_a_prompt(): void
+    {
+        $composer = $this->composerManifest();
+        $boost = json_decode(
+            (string) file_get_contents(dirname(__DIR__, 2).'/boost.json'),
+            true,
+            512,
+            JSON_THROW_ON_ERROR,
+        );
+
+        self::assertArrayHasKey('laravel/boost', $composer['require-dev']);
+        self::assertContains(
+            '@php scripts/install-agent-context.php',
+            $composer['scripts']['post-create-project-cmd'],
+        );
+        self::assertNotEmpty($boost['agents']);
+        self::assertTrue($boost['guidelines']);
+        self::assertContains('capell-app/core', $boost['packages']);
+        self::assertSame(
+            [],
+            array_diff($boost['packages'], array_keys($composer['require'])),
+            'boost.json names a Capell package the skeleton does not require directly, so Boost would skip it.',
+        );
+    }
+
+    #[Test]
+    public function it_creates_the_project_without_boost_when_dev_dependencies_are_skipped(): void
+    {
+        $project = sys_get_temp_dir().'/capell-skeleton-no-dev-'.bin2hex(random_bytes(4));
+        mkdir($project.'/scripts', 0777, true);
+        copy(dirname(__DIR__, 2).'/scripts/install-agent-context.php', $project.'/scripts/install-agent-context.php');
+
+        try {
+            exec(
+                escapeshellarg(PHP_BINARY).' '.escapeshellarg($project.'/scripts/install-agent-context.php').' 2>&1',
+                $output,
+                $exitCode,
+            );
+        } finally {
+            unlink($project.'/scripts/install-agent-context.php');
+            rmdir($project.'/scripts');
+            rmdir($project);
+        }
+
+        self::assertSame(0, $exitCode);
+        self::assertStringContainsString('Laravel Boost is not installed', implode("\n", $output));
+    }
+
+    #[Test]
+    public function it_names_the_site_building_path_in_the_committed_agents_file(): void
+    {
+        $agents = (string) file_get_contents(dirname(__DIR__, 2).'/AGENTS.md');
+
+        self::assertStringContainsString('php artisan capell:install --no-interaction', $agents);
+        self::assertStringContainsString('capell:site-spec-import', $agents);
+        self::assertStringContainsString('php artisan boost:install', $agents);
+        self::assertStringContainsString('https://docs.capell.app/llms.txt', $agents);
     }
 
     #[Test]
