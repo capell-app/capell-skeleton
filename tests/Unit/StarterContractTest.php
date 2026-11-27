@@ -48,7 +48,7 @@ final class StarterContractTest extends TestCase
         self::assertSame(
             [
                 '@php artisan key:generate --ansi',
-                '@php artisan boost:install --guidelines --skills --mcp --no-interaction --ansi',
+                '@php scripts/install-agent-context.php',
                 '@php scripts/post-create-message.php',
             ],
             $steps,
@@ -75,7 +75,7 @@ final class StarterContractTest extends TestCase
 
         self::assertArrayHasKey('laravel/boost', $composer['require-dev']);
         self::assertContains(
-            '@php artisan boost:install --guidelines --skills --mcp --no-interaction --ansi',
+            '@php scripts/install-agent-context.php',
             $composer['scripts']['post-create-project-cmd'],
         );
         self::assertNotEmpty($boost['agents']);
@@ -86,6 +86,29 @@ final class StarterContractTest extends TestCase
             array_diff($boost['packages'], array_keys($composer['require'])),
             'boost.json names a Capell package the skeleton does not require directly, so Boost would skip it.',
         );
+    }
+
+    #[Test]
+    public function it_creates_the_project_without_boost_when_dev_dependencies_are_skipped(): void
+    {
+        $project = sys_get_temp_dir().'/capell-skeleton-no-dev-'.bin2hex(random_bytes(4));
+        mkdir($project.'/scripts', 0777, true);
+        copy(dirname(__DIR__, 2).'/scripts/install-agent-context.php', $project.'/scripts/install-agent-context.php');
+
+        try {
+            exec(
+                escapeshellarg(PHP_BINARY).' '.escapeshellarg($project.'/scripts/install-agent-context.php').' 2>&1',
+                $output,
+                $exitCode,
+            );
+        } finally {
+            unlink($project.'/scripts/install-agent-context.php');
+            rmdir($project.'/scripts');
+            rmdir($project);
+        }
+
+        self::assertSame(0, $exitCode);
+        self::assertStringContainsString('Laravel Boost is not installed', implode("\n", $output));
     }
 
     #[Test]
