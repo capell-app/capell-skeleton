@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Tests\Unit;
 
+use Capell\Marketplace\Jobs\AbstractMarketplaceOperationJob;
 use Capell\Marketplace\Jobs\ResumeMarketplaceInstallFlowJob;
-use Capell\Marketplace\Jobs\RunMarketplaceInstallAttemptJob;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
@@ -163,10 +163,19 @@ final class StarterContractTest extends TestCase
     {
         /** @var array<string, array<string, mixed>> $connections */
         $connections = (require dirname(__DIR__, 2).'/config/queue.php')['connections'];
-        $marketplaceJobTimeout = max(
-            (new ReflectionClass(ResumeMarketplaceInstallFlowJob::class))->getDefaultProperties()['timeout'],
-            (new ReflectionClass(RunMarketplaceInstallAttemptJob::class))->getDefaultProperties()['timeout'],
-        );
+        // The install and update jobs set their timeout at runtime from the Composer timeout plus
+        // its buffer, so read those defaults rather than a property the class does not declare.
+        $jobTimeouts = [
+            'resume install flow' => (new ReflectionClass(ResumeMarketplaceInstallFlowJob::class))->getDefaultProperties()['timeout'] ?? null,
+            'install, update or uninstall attempt' => AbstractMarketplaceOperationJob::DEFAULT_COMPOSER_TIMEOUT_SECONDS
+                + AbstractMarketplaceOperationJob::DEFAULT_JOB_TIMEOUT_BUFFER_SECONDS,
+        ];
+
+        foreach ($jobTimeouts as $job => $timeout) {
+            self::assertIsInt($timeout, sprintf('Could not read the %s job timeout, so the retry_after check would compare against nothing.', $job));
+        }
+
+        $marketplaceJobTimeout = max($jobTimeouts);
 
         self::assertGreaterThan($marketplaceJobTimeout, $connections['database']['retry_after']);
         self::assertGreaterThan($marketplaceJobTimeout, $connections['beanstalkd']['retry_after']);
