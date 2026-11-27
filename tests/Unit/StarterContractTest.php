@@ -46,7 +46,11 @@ final class StarterContractTest extends TestCase
         $steps = $this->composerManifest()['scripts']['post-create-project-cmd'] ?? [];
 
         self::assertSame(
-            ['@php artisan key:generate --ansi', '@php scripts/post-create-message.php'],
+            [
+                '@php artisan key:generate --ansi',
+                '@php artisan boost:install --guidelines --skills --mcp --no-interaction --ansi',
+                '@php scripts/post-create-message.php',
+            ],
             $steps,
         );
 
@@ -56,6 +60,43 @@ final class StarterContractTest extends TestCase
         self::assertIsString($output);
         self::assertStringContainsString('php artisan capell:install', $output);
         self::assertStringContainsString('about three minutes', $output);
+    }
+
+    #[Test]
+    public function it_gives_a_new_project_capell_agent_context_without_a_prompt(): void
+    {
+        $composer = $this->composerManifest();
+        $boost = json_decode(
+            (string) file_get_contents(dirname(__DIR__, 2).'/boost.json'),
+            true,
+            512,
+            JSON_THROW_ON_ERROR,
+        );
+
+        self::assertArrayHasKey('laravel/boost', $composer['require-dev']);
+        self::assertContains(
+            '@php artisan boost:install --guidelines --skills --mcp --no-interaction --ansi',
+            $composer['scripts']['post-create-project-cmd'],
+        );
+        self::assertNotEmpty($boost['agents']);
+        self::assertTrue($boost['guidelines']);
+        self::assertContains('capell-app/core', $boost['packages']);
+        self::assertSame(
+            [],
+            array_diff($boost['packages'], array_keys($composer['require'])),
+            'boost.json names a Capell package the skeleton does not require directly, so Boost would skip it.',
+        );
+    }
+
+    #[Test]
+    public function it_names_the_site_building_path_in_the_committed_agents_file(): void
+    {
+        $agents = (string) file_get_contents(dirname(__DIR__, 2).'/AGENTS.md');
+
+        self::assertStringContainsString('php artisan capell:install --no-interaction', $agents);
+        self::assertStringContainsString('capell:site-spec-import', $agents);
+        self::assertStringContainsString('php artisan boost:install', $agents);
+        self::assertStringContainsString('https://docs.capell.app/llms.txt', $agents);
     }
 
     #[Test]

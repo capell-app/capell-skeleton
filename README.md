@@ -39,6 +39,16 @@ The installer runs real preflight checks before it mutates the application. If
 a requirement or writable path is missing, fix the reported failure and rerun
 the same command.
 
+## Working with an AI agent
+
+`composer create-project` also installs [Laravel Boost](https://laravel.com/docs/boost)
+with the guidelines and skills that ship inside the Capell packages, and sets up
+the Boost MCP server for Claude Code and Codex. The committed `AGENTS.md` tells
+an agent how to install Capell without prompts and which Capell tools to reach
+for before writing one-off code. Change the agent list in `boost.json` and run
+`php artisan boost:install` again to set up a different agent, or after adding
+or removing a Capell package.
+
 ## What the starter includes
 
 - Laravel 13 and a normal application-owned `app/`, `routes/`, and `resources/`

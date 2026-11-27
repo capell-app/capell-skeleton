@@ -1,0 +1,16 @@
+{
+    "agents": [
+        "claude_code",
+        "codex"
+    ],
+    "guidelines": true,
+    "mcp": true,
+    "packages": [
+        "capell-app/block-library",
+        "capell-app/core",
+        "capell-app/layout-builder",
+        "capell-app/navigation",
+        "capell-app/theme-foundation",
+        "capell-app/welcome-tour"
+    ]
+}

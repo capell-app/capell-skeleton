@@ -22,6 +22,7 @@
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
+        "laravel/boost": "^2.10",
         "laravel/pail": "^1.2.5",
         "laravel/pint": "^1.27",
         "mockery/mockery": "^1.6",
@@ -71,6 +72,7 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi",
+            "@php artisan boost:install --guidelines --skills --mcp --no-interaction --ansi",
             "@php scripts/post-create-message.php"
         ]
     },
